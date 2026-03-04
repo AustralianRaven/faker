@@ -3,6 +3,7 @@ import { FakerError } from '../../errors/faker-error';
 import { toDate } from '../../internal/date';
 import { getDefaultRefDate } from '../../utils/get-default-ref-date';
 import { between } from '../date/between';
+import { yearsToMs } from './_convert';
 
 /**
  * Generates a random date in the future.
