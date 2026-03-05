@@ -28,7 +28,7 @@ export function httpStatusCode(
     /**
      * A list of the HTTP status code types that should be used.
      *
-     * @default Object.keys(resolveLocaleData(fakerCore, 'internet', 'http_status_code'))
+     * @default Object.keys(fakerCore.locale.internet.http_status_code)
      */
     types?: ReadonlyArray<HTTPStatusCodeType>;
   } = {}
