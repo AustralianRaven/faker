@@ -3,6 +3,8 @@ import { assertLocaleData } from '../../internal/locale-proxy';
 import { arrayElement } from '../helpers/array-element';
 import { fake } from '../helpers/fake';
 import { weightedArrayElement } from '../helpers/weighted-array-element';
+import { selectDefinition } from './_select-definition';
+import type { SexType } from './sex-type';
 
 /**
  * Returns a random last name.
