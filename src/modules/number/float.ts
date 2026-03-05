@@ -111,7 +111,6 @@ export function float(
     return int / factor;
   }
 
-  const { randomizer } = fakerCore;
-  const real = randomizer.next();
+  const real = fakerCore.randomizer.next();
   return real * (max - min) + min;
 }
