@@ -1,4 +1,10 @@
+// import faker from '../../docs/.vitepress/dist/faker.js';
+
 describe('example-refresh', () => {
+  beforeEach(() => {
+    cy.intercept('**/faker.js').as('FAKER_DOWNLOAD');
+  });
+
   it('should refresh the example', () => {
     // given
     cy.visit('/api/faker.html#constructor');
@@ -7,8 +13,12 @@ describe('example-refresh', () => {
     cy.get('@codeBlock').then(($el) => {
       const originalCodeText = $el.text();
 
+      cy.get('@refresh').click();
+
+      // the faker bundle is really big and takes a while some times
+      cy.wait('@FAKER_DOWNLOAD', { responseTimeout: 15_000 });
+
       cy.get('@refresh')
-        .click()
         .should('not.be.disabled') // stays disabled on error
         .then(() => {
           cy.get('@codeBlock').then(($el) => {
