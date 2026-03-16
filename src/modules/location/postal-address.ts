@@ -1,6 +1,12 @@
 import type { FakerCore } from '../../core';
 import { assertLocaleData } from '../../internal/locale-proxy';
 import { fake } from '../helpers/fake';
+import { city } from './city';
+import { secondaryAddress } from './secondary-address';
+import { state } from './state';
+import { street } from './street';
+import { streetAddress } from './street-address';
+import { zipCode } from './zip-code';
 
 /**
  * Generates a random localized full postal address, which may include a street address, secondary address, city, state, and zip code. To ensure you get locale-specific address formats, use a localized Faker instance.
@@ -35,7 +41,21 @@ export function postalAddress(fakerCore: FakerCore): string {
     fakerCore,
     assertLocaleData(
       fakerCore.locale.location?.postal_address,
+
       'location.postal_address'
-    )
+    ),
+    [
+      {
+        location: {
+          city,
+          secondaryAddress,
+          state,
+          street,
+          streetAddress,
+          zipCode,
+        },
+      },
+      fakerCore.locale,
+    ]
   );
 }

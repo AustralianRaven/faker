@@ -1,6 +1,9 @@
 import type { FakerCore } from '../../core';
 import { assertLocaleData } from '../../internal/locale-proxy';
+import { arrayElement } from '../helpers/array-element';
 import { fake } from '../helpers/fake';
+import { int } from '../number/int';
+import { semver } from '../system/semver';
 
 /**
  * Generates a random user agent string.
@@ -19,6 +22,10 @@ export function userAgent(fakerCore: FakerCore): string {
     assertLocaleData(
       fakerCore.locale.internet?.user_agent_pattern,
       'internet.user_agent_pattern'
-    )
+    ),
+    [
+      { number: { int }, helpers: { arrayElement }, system: { semver } },
+      fakerCore.locale,
+    ]
   );
 }

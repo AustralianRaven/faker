@@ -1,6 +1,12 @@
 import type { FakerCore } from '../../core';
 import { assertLocaleData } from '../../internal/locale-proxy';
+import { name } from '../company/name';
 import { fake } from '../helpers/fake';
+import { numeric } from '../string/numeric';
+import { amount } from './amount';
+import { currency } from './currency';
+import { currencyCode } from './currency-code';
+import { transactionType } from './transaction-type';
 
 /**
  * Generates a random transaction description.
@@ -19,6 +25,14 @@ export function transactionDescription(fakerCore: FakerCore): string {
     assertLocaleData(
       fakerCore.locale.finance?.transaction_description_pattern,
       'finance.transaction_description_pattern'
-    )
+    ),
+    [
+      {
+        company: { name },
+        finance: { amount, currency, currencyCode, transactionType },
+        string: { numeric },
+      },
+      fakerCore.locale,
+    ]
   );
 }

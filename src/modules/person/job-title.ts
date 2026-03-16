@@ -1,6 +1,9 @@
 import type { FakerCore } from '../../core';
 import { assertLocaleData } from '../../internal/locale-proxy';
 import { fake } from '../helpers/fake';
+import { jobArea } from './job-area';
+import { jobDescriptor } from './job-descriptor';
+import { jobType } from './job-type';
 
 /**
  * Generates a random job title.
@@ -18,6 +21,7 @@ export function jobTitle(fakerCore: FakerCore): string {
     assertLocaleData(
       fakerCore.locale.person?.job_title_pattern,
       'person.job_title_pattern'
-    )
+    ),
+    [{ person: { jobDescriptor, jobArea, jobType } }, fakerCore.locale]
   );
 }

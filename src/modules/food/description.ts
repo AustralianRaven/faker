@@ -1,6 +1,7 @@
 import type { FakerCore } from '../../core';
 import { assertLocaleData } from '../../internal/locale-proxy';
 import { fake } from '../helpers/fake';
+import { int } from '../number/int';
 
 /**
  * Generates a random dish description.
@@ -18,6 +19,7 @@ export function description(fakerCore: FakerCore): string {
     assertLocaleData(
       fakerCore.locale.food?.description_pattern,
       'food.description_pattern'
-    )
+    ),
+    [{ number: { int } }, fakerCore.locale]
   );
 }

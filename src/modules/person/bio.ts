@@ -1,6 +1,7 @@
 import type { FakerCore } from '../../core';
 import { assertLocaleData } from '../../internal/locale-proxy';
 import { fake } from '../helpers/fake';
+import { emoji } from '../internet/emoji';
 
 /**
  * Returns a random short biography
@@ -18,5 +19,10 @@ export function bio(fakerCore: FakerCore): string {
     'person.bio_pattern'
   );
 
-  return fake(fakerCore, pattern);
+  return fake(fakerCore, pattern, [
+    {
+      internet: { emoji },
+    },
+    fakerCore.locale,
+  ]);
 }

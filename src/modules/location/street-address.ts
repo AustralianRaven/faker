@@ -1,6 +1,9 @@
 import type { FakerCore } from '../../core';
 import { assertLocaleData } from '../../internal/locale-proxy';
 import { fake } from '../helpers/fake';
+import { buildingNumber } from './building-number';
+import { secondaryAddress } from './secondary-address';
+import { street } from './street';
 
 /**
  * Generates a random localized street address.
@@ -42,5 +45,8 @@ export function streetAddress(
   );
   const format = formats[useFullAddress ? 'full' : 'normal'];
 
-  return fake(fakerCore, format);
+  return fake(fakerCore, format, [
+    { location: { street, buildingNumber, secondaryAddress } },
+    fakerCore.locale,
+  ]);
 }

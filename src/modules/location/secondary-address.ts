@@ -1,6 +1,7 @@
 import type { FakerCore } from '../../core';
 import { assertLocaleData } from '../../internal/locale-proxy';
 import { fake } from '../helpers/fake';
+import { lastName } from '../person/last-name';
 import { numeric } from '../string/numeric';
 
 /**
@@ -20,7 +21,8 @@ export function secondaryAddress(fakerCore: FakerCore): string {
     assertLocaleData(
       fakerCore.locale.location?.secondary_address,
       'location.secondary_address'
-    )
+    ),
+    [{ person: { lastName } }, fakerCore.locale]
   ).replaceAll(/#+/g, (m) =>
     numeric(fakerCore, {
       length: m.length,

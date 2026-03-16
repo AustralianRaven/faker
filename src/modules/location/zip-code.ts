@@ -4,6 +4,7 @@ import { assertLocaleData } from '../../internal/locale-proxy';
 import { arrayElement } from '../helpers/array-element';
 import { fake } from '../helpers/fake';
 import { replaceSymbols } from '../helpers/replace-symbols';
+import { int } from '../number/int';
 
 /**
  * Generates random zip code from specified format. If format is not specified,
@@ -62,7 +63,7 @@ export function zipCode(
       throw new FakerError(`No zip code definition found for state "${state}"`);
     }
 
-    return fake(fakerCore, zipPattern);
+    return fake(fakerCore, zipPattern, [{ number: { int } }, fakerCore.locale]);
   }
 
   let {
