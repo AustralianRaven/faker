@@ -7,13 +7,12 @@ import { int } from '../number/int';
 import { firstName } from '../person/first-name';
 import { lastName } from '../person/last-name';
 
-// Temp export
 /**
  * Converts the given string to title case.
  *
  * @param text The text to convert.
  */
-export function toTitleCase(text: string): string {
+function toTitleCase(text: string): string {
   return text
     .split(' ')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
