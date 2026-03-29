@@ -378,6 +378,7 @@ async function normalizePersonFile(filePath: string) {
  * @param definitionKey The definition key of the current file (ex. 'location').
  */
 async function normalizeLocaleFile(filePath: string, definitionKey: string) {
+  // oxlint-disable-next-line jsdoc/require-param
   function normalizeDataRecursive<T>(localeData: T): T {
     if (typeof localeData !== 'object' || localeData === null) {
       // we can only traverse object-like structs
@@ -508,15 +509,14 @@ for (const locale of locales) {
 
   promises.push(
     // src/locale/<locale>.ts
-    // eslint-disable-next-line unicorn/prefer-top-level-await -- Disabled for performance
+    // oxlint-disable-next-line unicorn/prefer-top-level-await -- Disabled for performance
     generateLocaleFile(locale),
 
     // /docs/locales/*.md
-    // eslint-disable-next-line unicorn/prefer-top-level-await -- Disabled for performance
+    // oxlint-disable-next-line unicorn/prefer-top-level-await -- Disabled for performance
     generateLocaleDocumentation(locale),
 
     // src/locales/**/index.ts
-    // eslint-disable-next-line unicorn/prefer-top-level-await -- Disabled for performance
     generateRecursiveModuleIndexes(pathModules, locale, 'LocaleDefinition', 1)
   );
 }

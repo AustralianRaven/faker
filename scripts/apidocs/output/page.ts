@@ -149,7 +149,6 @@ async function toMethodData(method: RawApiDocsMethod): Promise<ApiDocsMethod> {
   let formattedSignature = await formatTypescript(signature);
   formattedSignature = formattedSignature.trim();
 
-  // eslint-disable-next-line @typescript-eslint/require-await
   const refresh = async () => ['refresh', name, 'placeholder'];
   // This is a placeholder to be replaced by the actual refresh function code
   // If we put the actual code here, it would be a string and not executable

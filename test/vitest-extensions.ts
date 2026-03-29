@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type */
 import { expect } from 'vitest';
 
 expect.extend({
@@ -47,6 +46,8 @@ interface CustomMatchers {
 }
 
 declare module 'vitest' {
+  // oxlint-disable-next-line typescript/no-empty-object-type
   interface Assertion extends CustomMatchers {}
+  // oxlint-disable-next-line typescript/no-empty-object-type
   interface AsymmetricMatchersContaining extends CustomMatchers {}
 }

@@ -1,3 +1,4 @@
+// oxlint-disable vitest/expect-expect, vitest/no-disabled-tests, vitest/no-standalone-expect, vitest/valid-expect, vitest/valid-title
 import { describe, expect, describe as vi_describe, it as vi_it } from 'vitest';
 import type { Faker } from '../../src/faker';
 import type { Callable, MethodOf } from '../../src/internal/types';

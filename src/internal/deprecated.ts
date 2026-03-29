@@ -1,5 +1,3 @@
-/* eslint-disable jsdoc/require-param */
-
 /**
  * A deprecation should never be done in a patch.
  */
@@ -28,6 +26,7 @@ export interface DeprecatedOptions {
 /**
  * @internal
  */
+// oxlint-disable-next-line jsdoc/require-param
 export function deprecated(options: DeprecatedOptions): void {
   const { deprecated, since, until, proposed } = options;
   let message = `[@faker-js/faker]: ${deprecated} is deprecated`;
@@ -44,6 +43,5 @@ export function deprecated(options: DeprecatedOptions): void {
     message += `. Please use ${proposed} instead`;
   }
 
-  // eslint-disable-next-line no-undef -- Using console here is intentional and required
   console.warn(`${message}.`);
 }
