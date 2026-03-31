@@ -94,6 +94,7 @@
     "dist"
   ],
   "devDependencies": {
+    "@cypress/webpack-preprocessor": "7.0.2",
     "@eslint/compat": "2.0.3",
     "@eslint/js": "10.0.1",
     "@stylistic/eslint-plugin": "5.10.0",
@@ -107,6 +108,7 @@
     "@vueuse/core": "14.2.1",
     "commit-and-tag-version": "12.7.1",
     "cypress": "15.13.0",
+    "esbuild-loader": "4.4.2",
     "eslint": "10.1.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-file-progress": "4.0.0",
