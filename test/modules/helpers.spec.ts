@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { FakerError, faker } from '../../src';
+import { FakerError, faker, moduleRegistry } from '../../src';
 import { luhnCheck } from '../../src/modules/helpers/_luhn-check';
 import { seededTests } from '../support/seeded-runs';
 import { times } from './../support/times';
@@ -1111,12 +1111,12 @@ describe('helpers', () => {
 
         it('should be able to handle special replacement patterns', () => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (faker.string as any).special = () => '$&';
+          (moduleRegistry.string as any).special = () => '$&';
 
           expect(faker.helpers.fake('{{string.special}}')).toBe('$&');
 
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          delete (faker.string as any).special;
+          delete (moduleRegistry.string as any).special;
         });
 
         it('should not trim whitespace', () => {
