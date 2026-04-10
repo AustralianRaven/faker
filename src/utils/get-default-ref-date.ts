@@ -35,5 +35,5 @@ export const DEFAULT_REF_DATE_SOURCE: () => Date = () => new Date();
  * @since 10.5.0
  */
 export function getDefaultRefDate(fakerCore: FakerCore): Date {
-  return fakerCore.config.defaultRefDate?.() ?? DEFAULT_REF_DATE_SOURCE();
+  return (fakerCore.config.defaultRefDate ?? DEFAULT_REF_DATE_SOURCE)();
 }
