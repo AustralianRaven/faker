@@ -25,6 +25,7 @@ import { stringModule } from './modules/string/registry';
 import { systemModule } from './modules/system/registry';
 import { vehicleModule } from './modules/vehicle/registry';
 import { wordModule } from './modules/word/registry';
+import { utilsModule } from './utils/registry';
 
 export const moduleRegistry = {
   airline: airlineModule,
@@ -54,4 +55,5 @@ export const moduleRegistry = {
   system: systemModule,
   vehicle: vehicleModule,
   word: wordModule,
+  utils: utilsModule,
 };
