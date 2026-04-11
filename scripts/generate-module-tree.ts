@@ -278,9 +278,10 @@ ${[...moduleNames]
       `import { ${toCamelCase(name)}Module } from './modules/${name}/registry';`
   )
   .join('\n')}
+import { utilsModule } from './utils/registry';
 
 export const moduleRegistry = {
-${[...moduleNames]
+${[...moduleNames, 'utils']
   .map((name) => `  ${toCamelCase(name)}: ${toCamelCase(name)}Module,`)
   .join('\n')}
 };
